@@ -18,6 +18,12 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        with:
+          args: >
+            -Dsonar.projectName=sonar-java-sample
+            -Dsonar.projectKey=sonar-java-sample
+            -Dsonar.sources=src/main
+            -Dsonar.tests=src/test
 
       # - name: Set up JDK 17
       #   uses: actions/setup-java@v1
