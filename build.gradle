@@ -8,15 +8,6 @@ plugins {
 description = 'sonar-java-sample'
 version = '1.0'
 
-sonar {
-    properties {
-        property('sonar.projectName', 'sonar-java-sample')
-        property("sonar.projectKey", "sonar-scanner-gradle")
-        property("sonar.sources", "src/main")
-        property "sonar.tests", "src/test"
-    }
-}
-
 // In this section you declare where to find the dependencies of your project
 repositories {
     // Use jcenter for resolving your dependencies.
