@@ -25,6 +25,7 @@ jobs:
           restore-keys: ${{ runner.os }}-gradle
       - name: Build project with Gradle
         run: ./gradlew build
+      # Add this after the build step
       - name: SonarQube Scan
         uses: sonarsource/sonarqube-scan-action@master
         env:
@@ -32,10 +33,10 @@ jobs:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         with:
           args: >
-            -Dsonar.projectName=sonar-java-sample
             -Dsonar.projectKey=sonar-java-sample
             -Dsonar.sources=src/main
             -Dsonar.tests=src/test
+      # Add this after the SonarQube Scan step
       - name: SonarQube Quality Gate check
         id: sonarqube-quality-gate-check
         uses: sonarsource/sonarqube-quality-gate-action@master
